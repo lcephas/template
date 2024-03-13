@@ -1,10 +1,7 @@
-param name string
 param location string
-param resourceToken string
-param tags object
 
 resource acr 'Microsoft.ContainerRegistry/registries@2021-12-01-preview' = {
-  name: name
+  name: 'acr${uniqueString(resourceGroup().id)}'
   location: location
   sku: {
     name: 'Basic'
