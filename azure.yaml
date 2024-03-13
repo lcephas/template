@@ -13,6 +13,6 @@ hooks:
   postprovision:
     posix: 
       shell: sh
-      run: echo 'App Insights connection string:' && echo "$APPLICATIONINSIGHTS_CONNECTION_STRING"
+      run: infra/azAcrBuild.sh
       interactive: true
       continueOnError: true
