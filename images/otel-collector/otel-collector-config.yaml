@@ -14,7 +14,7 @@ exporters:
   debug:
     verbosity: detailed
   azuremonitor:
-    instrumentation_key: ${env:AZ_INSTRUMENTATION_KEY}
+    connection_string: ${env:APPLICATIONINSIGHTS_CONNECTION_STRING}
 
 service:
   pipelines:
