@@ -6,6 +6,9 @@ resource acr 'Microsoft.ContainerRegistry/registries@2021-12-01-preview' = {
   sku: {
     name: 'Basic'
   }
+  properties: {
+    adminUserEnabled: true
+  }
 }
 
 resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2020-03-01-preview' = {
