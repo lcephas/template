@@ -25,14 +25,15 @@ resource logAnalyticsWorkspace 'Microsoft.OperationalInsights/workspaces@2020-03
   })
 }
 
-module applicationInsightsResources 'appInsights.bicep' = {
-  name: 'applicationinsights-resources'
-  params: {
-    prefix: acr.name
-    location: location
-    workspaceId: logAnalyticsWorkspace.id
+resource applicationInsights 'Microsoft.Insights/components@2020-02-02' = {
+  name: '${acr.name}-appinsights'
+  location: location
+  kind: 'web'
+  properties: {
+    Application_Type: 'web'
+    WorkspaceResourceId: logAnalyticsWorkspace.id
   }
 }
 
-output APPLICATIONINSIGHTS_CONNECTION_STRING string = applicationInsightsResources.outputs.APPLICATIONINSIGHTS_CONNECTION_STRING
+output APPLICATIONINSIGHTS_CONNECTION_STRING string = applicationInsights.properties.ConnectionString
 output ACR_NAME string = acr.name

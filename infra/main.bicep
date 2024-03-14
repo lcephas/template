@@ -22,7 +22,7 @@ module resources 'resources.bicep' = {
   }
 }
 
-output AZURE_LOCATION string = location
 output APPLICATIONINSIGHTS_CONNECTION_STRING string = resources.outputs.APPLICATIONINSIGHTS_CONNECTION_STRING
 output GROUP_NAME string = resourceGroup.name
+output GROUP_URL string = format('https://portal.azure.com/#@/resource{0}', resourceGroup.id) 
 output ACR_NAME string = resources.outputs.ACR_NAME
