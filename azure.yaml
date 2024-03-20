@@ -9,7 +9,7 @@ hooks:
       shell: sh
       run: |
         infra/azAcrBuild.sh && 
-        echo -e $"\nAPPLICATIONINSIGHTS_CONNECTION_STRING =\033[1;33m $APPLICATIONINSIGHTS_CONNECTION_STRING\033[0m" && 
-        echo -e $"\nOpen resource group in the portal:\033[1;36m $GROUP_URL\033[0m"
+        printf "\nAPPLICATIONINSIGHTS_CONNECTION_STRING =\033[1;33m $APPLICATIONINSIGHTS_CONNECTION_STRING\033[0m" && 
+        printf "\nOpen resource group in the portal:\033[1;36m $GROUP_URL\033[0m"
       interactive: true
       continueOnError: true
