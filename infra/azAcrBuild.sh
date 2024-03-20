@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-echo "\nBuilding and uploading nginx image. Please wait..."
+printf "\nBuilding and uploading nginx image. Please wait..."
 az acr build --resource-group $GROUP_NAME \
   --registry $ACR_NAME \
   --image nginx https://github.com/lcephas/template.git#main:images/nginx \
@@ -9,9 +9,9 @@ az acr build --resource-group $GROUP_NAME \
   --platform linux \
   --no-logs \
   --output none
-echo "Success!"
+printf "Success!"
 
-echo "\nBuilding and uploading otel-collector image. Please wait..."
+printf "Building and uploading otel-collector image. Please wait..."
 az acr build --resource-group $GROUP_NAME \
   --registry $ACR_NAME \
   --image otel-collector https://github.com/lcephas/template.git#main:images/otel-collector \
@@ -19,4 +19,4 @@ az acr build --resource-group $GROUP_NAME \
   --platform linux \
   --no-logs \
   --output none
-echo "Success!"
+printf "Success!"
