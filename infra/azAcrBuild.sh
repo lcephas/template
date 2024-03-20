@@ -19,4 +19,4 @@ az acr build --resource-group $GROUP_NAME \
   --platform linux \
   --no-logs \
   --output none
-printf "Success!"
+printf "Success!\n"
