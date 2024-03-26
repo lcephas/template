@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+# Make sure az commands use the same subscription
+az account set -s $AZURE_SUBSCRIPTION_ID
+
 printf "\nBuilding and uploading nginx image. Please wait..."
 az acr build --resource-group $GROUP_NAME \
   --registry $ACR_NAME \
